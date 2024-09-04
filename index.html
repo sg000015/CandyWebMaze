@@ -27,7 +27,7 @@
 
 
 
-  <script src="Build/WebMazeTest.loader.js"></script>
+  <script src="Build/Event.loader.js"></script>
   <script>
     if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
       // Mobile device style: fill the whole browser client area with the game canvas:
@@ -54,14 +54,14 @@
       }
       else {
         target.innerHTML = "100%";
-        window.document.querySelector("#loading").innerHTML = "미궁을 불러오는중...";
+        window.document.querySelector("#loading").innerHTML = "로딩중...";
       }
     }
 
     createUnityInstance(document.querySelector("#unity-canvas"), {
-      dataUrl: "Build/WebMazeTest.data",
-      frameworkUrl: "Build/WebMazeTest.framework.js",
-      codeUrl: "Build/WebMazeTest.wasm",
+      dataUrl: "Build/Event.data.unityweb",
+      frameworkUrl: "Build/Event.framework.js.unityweb",
+      codeUrl: "Build/Event.wasm.unityweb",
       streamingAssetsUrl: "StreamingAssets",
       companyName: "DefaultCompany",
       productName: "MazeProject",
@@ -73,8 +73,8 @@
 
         unityGame = unityInstance;
 
-        // document.getElementById("loader").style.display = "none";
-        // unityGame.style.display = "block";
+        document.getElementById("loader").style.display = "none";
+        unityGame.style.display = "block";
         UnityCanvas.style.height = "100%";
         UnityCanvas.style.width = "100%";
 
@@ -87,14 +87,14 @@
 
   <script>
     // 랜덤한 배경 이미지를 선택하기 위한 이미지 파일들의 배열
-    var backgroundImages = ['loading1.png', 'loading2.png', 'loading3.png', 'loading4.png'];
+    // var backgroundImages = ['loading1.png', 'loading2.png', 'loading3.png', 'loading4.png'];
 
-    // 배경 이미지를 랜덤으로 선택
-    var randomIndex = Math.floor(Math.random() * backgroundImages.length);
-    var randomImage = backgroundImages[randomIndex];
+    // // 배경 이미지를 랜덤으로 선택
+    // var randomIndex = Math.floor(Math.random() * backgroundImages.length);
+    // var randomImage = backgroundImages[randomIndex];
 
-    // 선택된 이미지를 배경으로 설정
-    document.getElementById('loader').style.backgroundImage = 'url(' + randomImage + ')';
+    // // 선택된 이미지를 배경으로 설정
+    // document.getElementById('loader').style.backgroundImage = 'url(' + randomImage + ')';
   </script>
 
 
